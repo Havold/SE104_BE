@@ -15,6 +15,7 @@ const StudentAccountSchema = new Schema(
       type: String,
       required: true,
     },
+
     password: {
       type: String,
       required: true,
@@ -32,6 +33,16 @@ const StudentAccountSchema = new Schema(
       },
     ],
     student_info: {
+      CCCD_detail: {
+        date_provide: {
+          type: String,
+        },
+        provide_by: {
+          type: String,
+        },
+        CCCD_image_front: { type: String },
+        CCCD_image_backside: { type: String },
+      },
       birth: {
         type: Date,
       },
@@ -42,8 +53,6 @@ const StudentAccountSchema = new Schema(
       nationality: { type: String },
       nation: { type: String },
       religion: { type: String },
-      CCCD_image_front: { type: String },
-      CCCD_image_backside: { type: String },
     },
     contact_info: {
       household: {
