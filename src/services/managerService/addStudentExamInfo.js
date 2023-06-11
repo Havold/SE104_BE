@@ -12,6 +12,11 @@ async function addStudentExamInfo(
       status: 409,
       message: "Student have been register",
     });
+  if (!new_student.register_contest_form)
+    return Promise.reject({
+      status: 409,
+      message: "Student not register",
+    });
   const ExamInfo = new ExamInfoModal({
     student_id,
     exam_date,
