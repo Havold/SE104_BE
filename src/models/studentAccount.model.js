@@ -116,6 +116,11 @@ const StudentAccountSchema = new Schema(
       ref: "RegisterContest",
       unique: true,
     },
+    exam_info: {
+      type: mongoose.Types.ObjectId,
+      ref: "ExamInfo",
+      unique: true,
+    },
     fine: { type: Number, required: true, default: 0 },
   },
   {
