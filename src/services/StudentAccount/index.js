@@ -7,6 +7,7 @@ import verifyToken from "./verifyToken.js";
 import updateInfo from "./updateInfo.js";
 import getStudent from "./getStudent.js";
 import registerContest from "./registerContest.js";
+import updateCCCDImage from "./updateCCCDImage.js";
 
 function StudentAccountService(StudentAccount) {
   this.StudentAccount = StudentAccount;
@@ -19,6 +20,7 @@ function StudentAccountService(StudentAccount) {
   this.updateInfo = updateInfo;
   this.getStudent = getStudent;
   this.registerContest = registerContest;
+  this.updateCCCDImage = updateCCCDImage;
 }
 
 export default StudentAccountService;
