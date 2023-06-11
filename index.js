@@ -3,6 +3,7 @@ import {} from "dotenv/config";
 import mongoose from "mongoose";
 import configExpressApp from "./src/config/express.js";
 import configMongoose from "./src/config/mongoose.js";
+import dayjs from "dayjs";
 
 const app = express();
 

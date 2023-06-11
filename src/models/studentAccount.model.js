@@ -16,14 +16,16 @@ const StudentAccountSchema = new Schema(
       required: true,
     },
     CCCD_detail: {
-      date_provide: {
-        type: String,
+      type: {
+        date_provide: {
+          type: Date,
+        },
+        provide_by: {
+          type: String,
+        },
+        CCCD_image_front: { type: String },
+        CCCD_image_backside: { type: String },
       },
-      provide_by: {
-        type: String,
-      },
-      CCCD_image_front: { type: String },
-      CCCD_image_backside: { type: String },
     },
     password: {
       type: String,
@@ -52,43 +54,61 @@ const StudentAccountSchema = new Schema(
     nation: { type: String },
     religion: { type: String },
     contact_info: {
-      household: {
-        phone: { type: String },
-        province: { type: String },
-        district: { type: String },
-        commune: { type: String },
-        house_number: { type: String },
-      },
-      contact: {
-        phone: { type: String },
-        province: { type: String },
-        district: { type: String },
-        commune: { type: String },
-        house_number: { type: String },
+      type: {
+        household: {
+          type: {
+            phone: { type: String },
+            province: { type: String },
+            district: { type: String },
+            commune: { type: String },
+            house_number: { type: String },
+          },
+          required: true,
+        },
+        contact: {
+          type: {
+            phone: { type: String },
+            province: { type: String },
+            district: { type: String },
+            commune: { type: String },
+            house_number: { type: String },
+          },
+          required: true,
+        },
       },
     },
     priority_info: {
-      type: {
+      graduation_status: {
         type: String,
         enum: ["difference", "grade_12", "graduated"],
+        required: true,
       },
       priority_area: { type: String, enum: ["KV1", "KV2", "KV2-NT", "KV3"] },
       priority_object: { type: String, enum: ["UT1", "UT2"] },
       graduated_year: { type: String },
       grade_10: {
-        province: { type: String },
-        district: { type: String },
-        school_name: { type: String },
+        type: {
+          province: { type: String },
+          district: { type: String },
+          school_name: { type: String },
+        },
+        required: true,
       },
       grade_11: {
-        province: { type: String },
-        district: { type: String },
-        school_name: { type: String },
+        type: {
+          province: { type: String },
+          district: { type: String },
+          school_name: { type: String },
+        },
+        required: true,
       },
       grade_12: {
-        province: { type: String },
-        district: { type: String },
-        school_name: { type: String },
+        type: {
+          province: { type: String },
+          district: { type: String },
+          school_name: { type: String },
+        },
+        required: true,
       },
     },
     register_contest_form: {

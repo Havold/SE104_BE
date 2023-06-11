@@ -5,9 +5,16 @@ import login from "../controller/student/login.js";
 import logout from "../controller/student/logout.js";
 import getAccessToken from "../controller/student/getAccessToken.js";
 import updateInfo from "../controller/student/updateInfo.js";
+import registerContest from "../controller/student/registerContest.js";
 
 const studentAccountRouter = express.Router();
 studentAccountRouter.post("/", register);
+studentAccountRouter.post(
+  "/current/register_contest",
+  studentAccountAuth,
+  registerContest
+);
+
 studentAccountRouter.put("/current", studentAccountAuth, updateInfo);
 studentAccountRouter.post("/login", login);
 studentAccountRouter.delete("/current/logout", studentAccountAuth, logout);
