@@ -1,7 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
-import validator from "validator";
-import dayjs from "dayjs";
-import {} from "dotenv/config";
+import { Schema, model } from "mongoose";
 
 const StudentAccountSchema = new Schema(
   {
@@ -22,11 +19,23 @@ const StudentAccountSchema = new Schema(
       type: String,
       required: true,
     },
+    tokens: [
+      {
+        access_token: {
+          type: String,
+          required: true,
+        },
+        refresh_token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
   {
     collection: "student account",
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
   }
 );
-const StudentAccountModal = model("StudentAccount", StudentSchema);
+const StudentAccountModal = model("StudentAccount", StudentAccountSchema);
 export default StudentAccountModal;
