@@ -13,6 +13,7 @@ async function updateCCCDImage(file_array) {
     "cccd_image/",
     `${this.StudentAccount._id}_backside`
   );
+
   this.StudentAccount.CCCD_detail.CCCD_image_front = front_img.url;
   this.StudentAccount.CCCD_detail.CCCD_image_backside = backside_img.url;
   await this.StudentAccount.save();

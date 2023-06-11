@@ -23,8 +23,8 @@ const StudentAccountSchema = new Schema(
         provide_by: {
           type: String,
         },
-        CCCD_image_front: { type: String },
-        CCCD_image_backside: { type: String },
+        CCCD_image_front: { type: String, required: true, default: "" },
+        CCCD_image_backside: { type: String, required: true, default: "" },
       },
     },
     password: {
@@ -110,12 +110,10 @@ const StudentAccountSchema = new Schema(
     register_contest_form: {
       type: mongoose.Types.ObjectId,
       ref: "RegisterContest",
-      unique: true,
     },
     exam_info: {
       type: mongoose.Types.ObjectId,
       ref: "ExamInfo",
-      unique: true,
     },
     fine: { type: Number, required: true, default: 0 },
   },
