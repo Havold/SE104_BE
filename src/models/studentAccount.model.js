@@ -81,7 +81,6 @@ const StudentAccountSchema = new Schema(
       graduation_status: {
         type: String,
         enum: ["difference", "grade_12", "graduated"],
-        required: true,
       },
       priority_area: { type: String, enum: ["KV1", "KV2", "KV2-NT", "KV3"] },
       priority_object: { type: String, enum: ["UT1", "UT2"] },
@@ -92,7 +91,6 @@ const StudentAccountSchema = new Schema(
           district: { type: String },
           school_name: { type: String },
         },
-        required: true,
       },
       grade_11: {
         type: {
@@ -100,7 +98,6 @@ const StudentAccountSchema = new Schema(
           district: { type: String },
           school_name: { type: String },
         },
-        required: true,
       },
       grade_12: {
         type: {
@@ -108,7 +105,6 @@ const StudentAccountSchema = new Schema(
           district: { type: String },
           school_name: { type: String },
         },
-        required: true,
       },
     },
     register_contest_form: {
