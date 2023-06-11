@@ -4,7 +4,7 @@ async function getForm() {
     virtuals: false,
   });
   delete data.__v;
-  return JSON.parse(JSON.stringify(data).replaceAll("_id", "id"));
+  return JSON.parse(JSON.stringify(data).replaceAll('"_id"', '"id"'));
 }
 
 export default getForm;

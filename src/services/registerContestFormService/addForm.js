@@ -9,6 +9,11 @@ async function addForm(student_id) {
   delete student_object.contact_info.contact._id;
   this.registerForm = new RegisterContestModal({
     student_id,
+    place_of_birth: student_object.place_of_birth,
+    priority_area: student_object.priority_info.priority_area,
+    priority_object: student_object.priority_info.priority_object,
+    graduated_year: student_object.priority_info.graduated_year,
+    household: student_object.contact_info.household,
     contact: student_object.contact_info.contact,
     sex: student_object.sex,
     CCCD: student_object.CCCD,
