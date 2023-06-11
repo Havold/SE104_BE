@@ -10,14 +10,14 @@ async function createRefreshToken() {
   if (!this.StudentAccount)
     return Promise.reject({ status: 401, message: "Unauthorized" });
   const access_token = jwt.sign(
-    { userId: this.StudentAccount._id },
+    { student_id: this.StudentAccount._id },
     access_token_key,
     {
       expiresIn: access_token_expires_time,
     }
   );
   const refresh_token = jwt.sign(
-    { userId: this.StudentAccount._id },
+    { student_id: this.StudentAccount._id },
     refresh_token_key,
     {
       expiresIn: refresh_token_expires_time,

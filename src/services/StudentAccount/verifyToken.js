@@ -8,7 +8,7 @@ async function verifyToken(access_token) {
   try {
     const decodedToken = jwt.verify(access_token, access_token_key);
     const student = await StudentAccountModal.findOne({
-      _id: decodedToken.userId,
+      _id: decodedToken.student_id,
     });
     if (!student)
       return Promise.reject({ status: 401, message: "Unauthorized" });
