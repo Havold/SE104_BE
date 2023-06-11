@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const StudentAccountSchema = new Schema(
   {
@@ -15,7 +15,16 @@ const StudentAccountSchema = new Schema(
       type: String,
       required: true,
     },
-
+    CCCD_detail: {
+      date_provide: {
+        type: String,
+      },
+      provide_by: {
+        type: String,
+      },
+      CCCD_image_front: { type: String },
+      CCCD_image_backside: { type: String },
+    },
     password: {
       type: String,
       required: true,
@@ -32,28 +41,16 @@ const StudentAccountSchema = new Schema(
         },
       },
     ],
-    student_info: {
-      CCCD_detail: {
-        date_provide: {
-          type: String,
-        },
-        provide_by: {
-          type: String,
-        },
-        CCCD_image_front: { type: String },
-        CCCD_image_backside: { type: String },
-      },
-      birth: {
-        type: Date,
-      },
-      sex: {
-        type: Boolean,
-      },
-      province: { type: String },
-      nationality: { type: String },
-      nation: { type: String },
-      religion: { type: String },
+    birth: {
+      type: Date,
     },
+    sex: {
+      type: Boolean,
+    },
+    place_of_birth: { type: String },
+    nationality: { type: String },
+    nation: { type: String },
+    religion: { type: String },
     contact_info: {
       household: {
         phone: { type: String },
@@ -66,6 +63,8 @@ const StudentAccountSchema = new Schema(
         phone: { type: String },
         province: { type: String },
         district: { type: String },
+        commune: { type: String },
+        house_number: { type: String },
       },
     },
     priority_info: {
@@ -91,6 +90,11 @@ const StudentAccountSchema = new Schema(
         district: { type: String },
         school_name: { type: String },
       },
+    },
+    register_contest_form: {
+      type: mongoose.Types.ObjectId,
+      ref: "RegisterContest",
+      unique: true,
     },
   },
   {
