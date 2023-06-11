@@ -23,8 +23,8 @@ const StudentAccountSchema = new Schema(
         provide_by: {
           type: String,
         },
-        CCCD_image_front: { type: String, required: true, default: "" },
-        CCCD_image_backside: { type: String, required: true, default: "" },
+        CCCD_image_front: { type: String, default: "" },
+        CCCD_image_backside: { type: String, default: "" },
       },
     },
     password: {
