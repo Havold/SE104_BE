@@ -8,6 +8,9 @@ import getAccessToken from "../controller/student/getAccessToken.js";
 import updateInfo from "../controller/student/updateInfo.js";
 import registerContest from "../controller/student/registerContest.js";
 import updateCCCDImage from "../controller/student/updateCCCDImage.js";
+import addMajor from "../controller/student/addMajor.js";
+import deleteMajor from "../controller/student/deleteMajor.js";
+import swapMajorRank from "../controller/student/swapMajorRank.js";
 
 const studentAccountRouter = express.Router();
 studentAccountRouter.post("/", register);
@@ -24,6 +27,9 @@ studentAccountRouter.put(
 );
 
 studentAccountRouter.put("/current", studentAccountAuth, updateInfo);
+studentAccountRouter.post("/current/major", studentAccountAuth, addMajor);
+studentAccountRouter.delete("/current/major", studentAccountAuth, deleteMajor);
+studentAccountRouter.put("/current/major", studentAccountAuth, swapMajorRank);
 studentAccountRouter.post("/login", login);
 studentAccountRouter.delete("/current/logout", studentAccountAuth, logout);
 studentAccountRouter.post("/refresh_token", getAccessToken);

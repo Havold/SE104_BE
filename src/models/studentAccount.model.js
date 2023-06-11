@@ -116,6 +116,7 @@ const StudentAccountSchema = new Schema(
       ref: "RegisterContest",
       unique: true,
     },
+    fine: { type: Number, required: true, default: 0 },
   },
   {
     collection: "student account",

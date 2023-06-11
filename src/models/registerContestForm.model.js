@@ -44,7 +44,19 @@ const registerContestForm = new Schema(
       required: true,
     },
     student_id: { type: String, required: true },
-    fine: { type: Number, required: true, default: 0 },
+    preference_majors: [
+      {
+        type: {
+          rank: { type: Number, required: true },
+          school_name: { type: String, required: true },
+          school_id: { type: String, required: true },
+          majors_name: { type: String, required: true },
+          majors_id: { type: String, required: true },
+        },
+        default: [],
+        required: true,
+      },
+    ],
   },
   {
     collection: "register contest form",
