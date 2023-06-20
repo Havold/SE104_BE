@@ -5,6 +5,7 @@ import createRefreshToken from "./createRefreshToken.js";
 import logout from "./logout.js";
 import register from "./register.js";
 import addStudentExamInfo from "./addStudentExamInfo.js";
+import addPointInfo from "./addPointInfo.js";
 
 function ManagerService(Manager) {
   this.Manager = Manager;
@@ -15,6 +16,7 @@ function ManagerService(Manager) {
   this.createAccessToken = createAccessToken;
   this.logout = logout;
   this.addStudentExamInfo = addStudentExamInfo;
+  this.addPointInfo = addPointInfo;
 }
 
 export default ManagerService;

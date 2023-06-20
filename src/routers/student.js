@@ -11,6 +11,7 @@ import updateCCCDImage from "../controller/student/updateCCCDImage.js";
 import addMajor from "../controller/student/addMajor.js";
 import deleteMajor from "../controller/student/deleteMajor.js";
 import swapMajorRank from "../controller/student/swapMajorRank.js";
+import getStudent from "../controller/student/getStudent.js";
 
 const studentAccountRouter = express.Router();
 studentAccountRouter.post("/", register);
@@ -25,7 +26,7 @@ studentAccountRouter.put(
   upload.array("cccd_image", 2),
   updateCCCDImage
 );
-
+studentAccountRouter.get("/current", studentAccountAuth, getStudent);
 studentAccountRouter.put("/current", studentAccountAuth, updateInfo);
 studentAccountRouter.post("/current/major", studentAccountAuth, addMajor);
 studentAccountRouter.delete("/current/major", studentAccountAuth, deleteMajor);

@@ -1,8 +1,11 @@
 const addStudentExamInfo = async (req, res, next) => {
   try {
-    const { student_id, exam_date, exam_venue, exam_room } = req.body;
+    const { student_id, student_email, exam_date, exam_venue, exam_room } =
+      req.body;
     const { managerService } = req;
-    const data = await managerService.addStudentExamInfo(student_id, {
+    const data = await managerService.addStudentExamInfo({
+      student_id,
+      student_email,
       exam_date,
       exam_venue,
       exam_room,

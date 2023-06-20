@@ -2,11 +2,17 @@ import ExamInfoModal from "../../models/examInfo.model.js";
 import StudentAccountModal from "../../models/studentAccount.model.js";
 import StudentAccountService from "../StudentAccount/index.js";
 
-async function addStudentExamInfo(
+async function addStudentExamInfo({
   student_id,
-  { exam_date, exam_venue, exam_room }
-) {
-  const new_student = await StudentAccountModal.findById(student_id);
+  student_email,
+  exam_date,
+  exam_venue,
+  exam_room,
+}) {
+  let new_student;
+  if (student_id) new_student = await StudentAccountModal.findById(student_id);
+  else
+    new_student = await StudentAccountModal.findOne({ email: student_email });
   if (new_student.exam_info)
     return Promise.reject({
       status: 409,
@@ -18,7 +24,7 @@ async function addStudentExamInfo(
       message: "Student not register",
     });
   const ExamInfo = new ExamInfoModal({
-    student_id,
+    student_id: new_student._id,
     exam_date,
     exam_room,
     exam_venue,

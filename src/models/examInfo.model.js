@@ -6,6 +6,8 @@ const examInfoSchema = new Schema(
     exam_date: { type: String, required: true },
     exam_venue: { type: String, required: true },
     exam_room: { type: String, required: true },
+    point_list: { type: Array },
+    pass_list: { type: Array },
   },
   {
     collection: "exam info",

@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 const registerContestForm = new Schema(
   {
     student_id: { type: String, required: true, ref: "StudentAccount" },
+    exam_type: { type: String, enum: ["KHTN", "KHXH"] },
     preference_majors: [
       {
         type: {

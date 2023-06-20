@@ -1,13 +1,14 @@
 import RegisterContestModal from "../../models/registerContestForm.model.js";
 import StudentAccountModal from "../../models/studentAccount.model.js";
 
-async function addForm(student_id) {
+async function addForm(student_id, exam_type) {
   const student_data = await StudentAccountModal.findById(student_id);
   if (!student_data)
     return Promise.reject({ status: 404, message: "Not found student" });
   const student_object = await student_data.toObject();
   delete student_object.contact_info.contact._id;
   this.registerForm = new RegisterContestModal({
+    exam_type,
     student_id,
     place_of_birth: student_object.place_of_birth,
     priority_area: student_object.priority_info.priority_area,

@@ -80,7 +80,6 @@ const StudentAccountSchema = new Schema(
     priority_info: {
       graduation_status: {
         type: String,
-        enum: ["difference", "grade_12", "graduated"],
       },
       priority_area: { type: String, enum: ["KV1", "KV2", "KV2-NT", "KV3"] },
       priority_object: { type: String, enum: ["UT1", "UT2"] },
