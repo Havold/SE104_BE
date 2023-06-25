@@ -12,7 +12,7 @@ const managerRouter = express.Router();
 
 managerRouter.post("/login", login);
 managerRouter.delete("/current/logout", managerAuth, logout);
-managerRouter.get("/current", (req, res) => {
+managerRouter.get("/current",managerAuth, (req, res) => {
   res.status(200).json({ data: { message: "OK" } });
 });
 managerRouter.post("/current/addExamInfo", managerAuth, addStudentExamInfo);
