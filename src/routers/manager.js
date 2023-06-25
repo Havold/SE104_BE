@@ -5,6 +5,7 @@ import register from "../controller/manager/register.js";
 import managerAuth from "../middleware/managerAuth.js";
 import addStudentExamInfo from "../controller/manager/addStudentExamInfo.js";
 import addPointInfo from "../controller/manager/addPointInfo.js";
+import getUserRegister from "../controller/manager/getUserRegister.js";
 
 const managerRouter = express.Router();
 
@@ -13,5 +14,5 @@ managerRouter.delete("/current/logout", managerAuth, logout);
 managerRouter.post("/", register);
 managerRouter.post("/current/addExamInfo", managerAuth, addStudentExamInfo);
 managerRouter.post("/current/addPointInfo", managerAuth, addPointInfo);
-
+managerRouter.get("/current/getUserRegister", managerAuth, getUserRegister);
 export default managerRouter;

@@ -2,8 +2,9 @@ import bcrypt from "bcrypt";
 import ManagerModal from "../../models/manager.model.js";
 
 async function login(account, password) {
+  console.log("here");
   const manager = await ManagerModal.findOne({ account });
-  if (!account)
+  if (!manager)
     return Promise.reject({
       status: 401,
       message: "Account or password not correct",

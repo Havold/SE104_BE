@@ -109,6 +109,7 @@ const StudentAccountSchema = new Schema(
     register_contest_form: {
       type: mongoose.Types.ObjectId,
       ref: "RegisterContest",
+      default: null,
     },
     exam_info: {
       type: mongoose.Types.ObjectId,

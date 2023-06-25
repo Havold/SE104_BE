@@ -6,6 +6,7 @@ import logout from "./logout.js";
 import register from "./register.js";
 import addStudentExamInfo from "./addStudentExamInfo.js";
 import addPointInfo from "./addPointInfo.js";
+import getUserRegister from "./getUserRegister.js";
 
 function ManagerService(Manager) {
   this.Manager = Manager;
@@ -17,6 +18,7 @@ function ManagerService(Manager) {
   this.logout = logout;
   this.addStudentExamInfo = addStudentExamInfo;
   this.addPointInfo = addPointInfo;
+  this.getUserRegister = getUserRegister;
 }
 
 export default ManagerService;
