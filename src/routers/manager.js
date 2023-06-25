@@ -6,13 +6,18 @@ import managerAuth from "../middleware/managerAuth.js";
 import addStudentExamInfo from "../controller/manager/addStudentExamInfo.js";
 import addPointInfo from "../controller/manager/addPointInfo.js";
 import getUserRegister from "../controller/manager/getUserRegister.js";
+import getAccessToken from "../controller/manager/getAccessToken.js";
 
 const managerRouter = express.Router();
 
 managerRouter.post("/login", login);
 managerRouter.delete("/current/logout", managerAuth, logout);
-managerRouter.post("/", register);
+managerRouter.get("/current", (req, res) => {
+  res.status(200).json({ data: { message: "OK" } });
+});
 managerRouter.post("/current/addExamInfo", managerAuth, addStudentExamInfo);
 managerRouter.post("/current/addPointInfo", managerAuth, addPointInfo);
 managerRouter.get("/current/getUserRegister", managerAuth, getUserRegister);
+managerRouter.post("/refresh_token", getAccessToken);
+
 export default managerRouter;

@@ -1,11 +1,13 @@
 import jwt from "jsonwebtoken";
 import {} from "dotenv/config";
 import ManagerModal from "../../models/manager.model.js";
+
 const access_token_key = process.env.MANAGER_ACCESS_TOKEN_KEY;
 const access_token_expires_time = process.env.ACCESS_TOKEN_EXPIRES_TIME;
 const refresh_token_key = process.env.MANAGER_REFRESH_TOKEN_KEY;
 
 async function createAccessToken(refresh_token) {
+  console.log("create", refresh_token);
   const decodedToken = jwt.verify(refresh_token, refresh_token_key);
   const manager = await ManagerModal.findOne({
     _id: decodedToken.manager_id,
